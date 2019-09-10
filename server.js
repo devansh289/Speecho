@@ -1,7 +1,11 @@
 const app = require("express")();
 
-app.get("/data", (req, res) => {
+app.get("/mydata", (req, res) => {
   res.send("hello");
+});
+
+app.get("/", (req, res) => {
+  res.sendfile("index.html");
 });
 
 /*var ToneAnalyzerV3 = require("ibm-watson/tone-analyzer/v3");
@@ -30,3 +34,7 @@ toneAnalyzer.tone(
 var listener = app.listen(8888, function() {
   console.log("Listening on port " + listener.address().port); //Listening on port 8888
 });*/
+
+app.listen(3004, () => {
+  console.log(`Listening on PORT 3004`);
+});
