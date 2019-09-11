@@ -1,17 +1,21 @@
 // const axios = require("axios");
 
-alert("hdedi");
+console.log("hdedi");
 
-// fetch("/mydata")
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(data) {
-//     console.log(data);
-//   })
-//   .catch(function() {
-//     console.log("Booo");
-//   });
+fetch("/mydata", {
+  method: "post",
+  body: JSON.stringify(data),
+  headers: { "Content-type": "application/json" }
+})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function() {
+    console.log("Booo");
+  });
 
 // axios
 //   .get("/mydata")
