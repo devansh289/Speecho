@@ -9,10 +9,12 @@
   <body>
     <script>
       function submitData() {
-        let userValue = document.getElementById("userText").value;
+        let myData = { userValue: "This is default" };
+        // let userValue = document.getElementById("userText").value;
+        myData.userValue = document.getElementById("userText").value;
         fetch("/mydata", {
-          method: "post",
-          body: JSON.stringify(userValue),
+          method: "POST",
+          body: JSON.stringify(myData),
           headers: { "Content-type": "application/json" }
         })
           .then(function(response) {
