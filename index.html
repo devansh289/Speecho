@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <style type="text/css" media="screen">
+      body {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 30px;
+        background-color: azure;
+        text-align: center;
+      }
+
+      div {
+        margin: 10px;
+      }
+    </style>
   </head>
   <body>
     <script>
@@ -21,15 +37,48 @@
             return response.json();
           })
           .then(function(data) {
+            const reactions = [
+              "anger",
+              "tentative",
+              "fear",
+              "joy",
+              "sadness",
+              "analytical",
+              "confident"
+            ];
+            reactions.map(item => {
+              document.getElementsByClassName(item)[0].innerHTML = `0%`;
+            });
             console.log(data.document_tone.tones);
+            data.document_tone.tones.map(item => {
+              document.getElementsByClassName(
+                item.tone_id
+              )[0].innerHTML = `${Math.round(item.score * 100)}%`;
+            });
           })
           .catch(function(err) {
             console.log(err);
           });
       }
     </script>
-    <h1>hees</h1>
-    <input type="text" id="userText" value="hey" />
+    <h1>Speecho!</h1>
+    <input type="text" id="userText" value="" placeholder="Enter text here" />
     <input type="button" value="click" OnClick="submitData()" />
+    <div class="emojis">
+      <div>&#x1F624;</div>
+      <h7 class="anger">0%</h7>
+      <div>&#x1F612;</div>
+      <h7 class="tentative">0%</h7>
+      <div>&#x1F631;</div>
+      <h7 class="fear">0%</h7>
+      <div>&#x1F601;</div>
+      <h7 class="joy">0%</h7>
+      <div>&#x1F61E;</div>
+      <h7 class="sadness">0%</h7>
+      <div>&#x1F914;</div>
+      <h7 class="analytical">0%</h7>
+      <div>&#x1F60E;</div>
+      <h7 class="confident">0%</h7>
+    </div>
   </body>
 </html>

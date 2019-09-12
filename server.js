@@ -17,7 +17,6 @@ app.post("/mydata", (req, res) => {
     version: "2017-09-21",
     url: "https://gateway-wdc.watsonplatform.net/tone-analyzer/api/v3/tone?"
   });
-  console.log(req.body);
   toneAnalyzer.tone(
     {
       tone_input: req.body.userValue,
@@ -27,8 +26,6 @@ app.post("/mydata", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log("tone endpoint:");
-        console.log(JSON.stringify(tone, null, 2));
         res.send(JSON.stringify(tone, null, 2));
       }
     }
