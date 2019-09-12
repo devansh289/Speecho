@@ -1,24 +1,27 @@
 const app = require("express")();
+const bodyParser = require("body-parser");
 
-app.configure(function() {
-  app.use(express.bodyParser());
-  app.use(app.router);
-});
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
+app.use(bodyParser.json());
 
 app.post("/mydata", (req, res) => {
   var ToneAnalyzerV3 = require("ibm-watson/tone-analyzer/v3");
-  console.log(req);
   var toneAnalyzer = new ToneAnalyzerV3({
     username: "apikey",
     password: "jPALKIxzvlYpqZvnB0fT6ZaiPQXpUnFsM08pIBbr29Af",
     version: "2017-09-21",
     url: "https://gateway-wdc.watsonplatform.net/tone-analyzer/api/v3/tone?"
   });
-
+  console.log(req.body);
   toneAnalyzer.tone(
     {
       tone_input: req.body.userValue,
-      content_type: "text/plain"
+      content_type: "text/html"
     },
     function(err, tone) {
       if (err) {
@@ -33,7 +36,7 @@ app.post("/mydata", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendfile("index.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.listen(3004, () => {

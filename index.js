@@ -3,9 +3,9 @@
 console.log("hdedi");
 
 fetch("/mydata", {
-  method: "post",
-  body: JSON.stringify(data),
-  headers: { "Content-type": "application/json" }
+  method: "POST"
+  // body: JSON.stringify(data),
+  // headers: { "Content-type": "text/html" }
 })
   .then(function(response) {
     return response.json();
