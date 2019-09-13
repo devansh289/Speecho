@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/devansh289/restartup)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://restartup.ml)
 
-# Speecho! - [View Site](http://restartup.ml)
+# Speecho! - [View Site](http://speecho.ml)
 An app that performs sentimental analysis on your text!
 
 ## Built With
