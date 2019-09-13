@@ -13,12 +13,51 @@
       body {
         font-family: "Ubuntu", sans-serif;
         font-size: 30px;
-        background-color: azure;
+        display: grid;
+        color: black;
+        background-color: #efe2ba;
         text-align: center;
       }
 
       div {
         margin: 10px;
+      }
+
+      .emojis > div {
+        display: inline;
+      }
+
+      #myText {
+        width: 70%;
+        height: 150px;
+        font-size: 0.8em;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+      }
+
+      #button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        width: 70%;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+      }
+
+      #button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
       }
     </style>
   </head>
@@ -27,7 +66,7 @@
       function submitData() {
         let myData = { userValue: "This is default" };
         // let userValue = document.getElementById("userText").value;
-        myData.userValue = document.getElementById("userText").value;
+        myData.userValue = document.getElementById("myText").value;
         fetch("/mydata", {
           method: "POST",
           body: JSON.stringify(myData),
@@ -62,8 +101,15 @@
       }
     </script>
     <h1>Speecho!</h1>
-    <input type="text" id="userText" value="" placeholder="Enter text here" />
-    <input type="button" value="click" OnClick="submitData()" />
+    <div id="content">
+      <input type="text" id="myText" value="" placeholder="Enter text here" />
+      <input
+        type="button"
+        value="ANALYZE TEXT!"
+        OnClick="submitData()"
+        id="button"
+      />
+    </div>
     <div class="emojis">
       <div>&#x1F624;</div>
       <h7 class="anger">0%</h7>
