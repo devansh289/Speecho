@@ -36,6 +36,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(3004, () => {
+app.listen(process.env.PORT || 3004, () => {
   console.log(`Listening on PORT 3004`);
 });
