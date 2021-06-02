@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/devansh289/restartup)
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://restartup.ml)
 
-# Speecho! - [View Site](http://speecho.ml)
+# Speecho! 
 An app that performs sentimental analysis on your text!
 
 ## Built With
@@ -14,7 +14,7 @@ An app that performs sentimental analysis on your text!
 Deployed using [Heroku](https://www.heroku.com/)
 
 ## Authors
- **Devansh Sharma**  - [Website](http://devansh-sharma.me)
+ **Devansh Sharma** 
  
 ## License
 
